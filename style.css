@@ -1,7 +1,15 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* Box sizing rules */
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -43,6 +51,7 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
+  -webkit-text-decoration-skip: ink;
   text-decoration-skip-ink: auto;
 }
 
@@ -63,8 +72,12 @@ picture {
   *,
   *::before,
   *::after {
+    -webkit-animation-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
     animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+    -o-transition-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
@@ -147,6 +160,8 @@ Typography
 .hero__carousel-nav {
   background-color: var(--clr-btn-backbround-Black);
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -164,11 +179,19 @@ Typography
   background-color: var(--clr-subtitle-Very-Dark-Gray);
 }
 .hero__carousel-nav-btn--prev:hover img {
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
   transform: translateX(-50%);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 .hero__carousel-nav-btn--next:hover img {
+  -webkit-transform: translateX(50%);
+  -ms-transform: translateX(50%);
   transform: translateX(50%);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -180,6 +203,8 @@ Typography
 .hero__cta-link:hover {
   letter-spacing: 0.8rem;
   color: var(--clr-bodyText-Dark-Gray);
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
   transition: 0.25s;
 }
 
@@ -195,6 +220,8 @@ Typography
   height: 3px;
   position: absolute;
   background-color: var(--clr-nav-primary-White);
+  -webkit-transition: 0.25s;
+  -o-transition: 0.25s;
   transition: 0.25s;
 }
 
@@ -208,8 +235,12 @@ layout
 /* navbar */
 
 .hero__nav-primary {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 2.7em 0 2.7em 2.7em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   z-index: 10;
 }
@@ -221,17 +252,22 @@ layout
 }
 .hero,
 .about {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: (1fr) [10];
   grid-template-columns: repeat(10, 1fr);
 }
 
 .hero__nav-primary,
 .hero__img-carousel,
 .hero__carousel-nav {
+  -ms-grid-row: 1;
   grid-row-start: 1;
 }
 
 .hero__img-carousel {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
   grid-column: 1 / span 6;
   /*found it easier to put height on grid item than
     to put it on grid container 
@@ -241,12 +277,18 @@ layout
 }
 
 .hero__nav-primary {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
   grid-column: 1 / span 3;
 }
 
 .hero__carousel-nav {
+  -ms-grid-column: 6;
   grid-column: 6;
+  -ms-grid-row-align: end;
   align-self: end;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
   transform: translateX(100%);
 }
 .hero__content-carousel {
@@ -256,10 +298,13 @@ layout
 /*about section*/
 .about__img--left,
 .about__img--right {
+  -ms-grid-column-span: 3;
   grid-column: span 3;
 }
 
 .about__content {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 4;
   grid-column: 4 / span 4;
 }
 
@@ -278,14 +323,22 @@ positioning grid items
 .about__img--right img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
+  -o-object-position: top left;
   object-position: top left;
 }
 
 /*to center about and main articles*/
 .felx-center-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -309,20 +362,30 @@ Carousel
 
 .hero__img-carousel,
 .hero__content-carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
   justify-content: flex-start;
   overflow: hidden;
   position: relative;
 }
 .carousel-sliders-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100%;
   width: 100%;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
 }
 
 .carousel-slider {
   height: 100%;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
   flex: 0 0 100%;
 }
 
@@ -330,7 +393,11 @@ Carousel
   position: absolute;
   width: 100%;
   height: 100%;
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
   transform: translateX(-100%);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
   transition: all 0.5s;
 }
 
@@ -343,9 +410,11 @@ MEDIA QUIRES
     overflow-y: initial;
   }
   .hero {
+    -ms-grid-rows: auto 50vh;
     grid-template-rows: auto 50vh;
   }
   .hero__img-carousel {
+    -ms-grid-column-span: -1;
     grid-column-end: -1;
     height: 50vh;
   }
@@ -355,10 +424,15 @@ MEDIA QUIRES
     padding: 1.7em;
     background-color: rgb(0, 0, 0); /*fallback color*/
     background-color: rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
   }
   .hero__carousel-nav {
+    -ms-grid-column: 9;
+    -ms-grid-column-span: 2;
     grid-column: 9 / span 2;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
     transform: translateX(0%);
   }
   .hero__content-carousel {
@@ -410,11 +484,15 @@ MEDIA QUIRES
     display: block;
   }
   .js-hero__nav-list {
+    -webkit-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
     transform: translateX(-100%);
     background-color: var(--clr-nav-primary-White);
   }
 
   .hero__carousel-nav {
+    -ms-grid-column: 8;
+    -ms-grid-column-span: 3;
     grid-column: 8 / 11;
   }
 }

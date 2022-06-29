@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [solutions/Room-homepage](https://your-solution-url.com)
-- Live Site URL: [Room-homepage live preview](https://your-live-site-url.com)
+- Solution URL: [solutions/Room-homepage](https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq/hub/responsive-roomhomepagemaster-with-carousel-slider-h0ew3O2T34)
+- Live Site URL: [Room-homepage live preview](https://hassaneljebyly.github.io/room-homepage-master/)
 
 ## My process
 

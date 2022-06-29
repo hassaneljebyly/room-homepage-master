@@ -1,0 +1,420 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  margin: 0;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* custom properties */
+
+:root {
+  --clr-bodyText-Dark-Gray: hsl(0, 0%, 63%);
+  --clr-mainTitle-Black: hsl(0, 0%, 0%);
+  --clr-btn-backbround-Black: hsl(0, 0%, 0%);
+  --clr-nav-primary-White: hsl(0, 0%, 100%);
+  --clr-subtitle-Very-Dark-Gray: hsl(0, 0%, 27%);
+  /*typography*/
+  --font-weight-navigation: 600;
+  --font-weight-subTitle: 600;
+  --font-weight-body: 500;
+  --font-weight-mainTitle: 700;
+  --font-size-navigation: 1.25rem;
+  --font-size-mainTitle: 2.511rem;
+  --font-size-subTitle: 1.2rem;
+  --font-size-body: 1rem;
+}
+
+html {
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px; /*12px was too small*/
+}
+
+body {
+  min-height: 100vh;
+  overflow-y: hidden;
+}
+
+/*--------------------------------
+Typography 
+--------------------------------*/
+
+.nav-links {
+  color: var(--clr-nav-primary-White);
+  font-size: var(--font-size-navigation);
+  font-weight: var(--font-weight-navigation);
+}
+
+.main-title {
+  color: var(--clr-mainTitle-Black);
+  font-size: var(--font-size-mainTitle);
+  font-weight: var(--font-weight-mainTitle);
+  line-height: 110%;
+}
+
+.hero__cta-link,
+.sub-title {
+  color: var(--clr-subtitle-Very-Dark-Gray);
+  font-size: var(--font-size-subTitle);
+  font-weight: var(--font-weight-subTitle);
+  letter-spacing: 0.7rem;
+  text-transform: uppercase;
+}
+.paragraph {
+  color: var(--clr-bodyText-Dark-Gray);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  max-width: 60ch; /*60-60 characters per line for better readability */
+  line-height: 150%; /*line height should be around 150% of the font size*/
+  margin: 1em 0;
+}
+
+/*----------------------------------
+ hoovers, background colors.... 
+ ----------------------------------*/
+
+.nav-links,
+.nav-hamburger-icon,
+.icon-close,
+.hero__carousel-nav-btn {
+  cursor: pointer;
+}
+/*carousel navigation*/
+.hero__carousel-nav {
+  background-color: var(--clr-btn-backbround-Black);
+  width: 100%;
+  display: flex;
+}
+
+.hero__carousel-nav button {
+  background-color: inherit;
+  width: 50%;
+  height: 70px;
+  border: 0;
+}
+.hero__carousel-nav-btn img {
+  margin: auto;
+}
+
+.hero__carousel-nav button:hover {
+  background-color: var(--clr-subtitle-Very-Dark-Gray);
+}
+.hero__carousel-nav-btn--prev:hover img {
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+.hero__carousel-nav-btn--next:hover img {
+  transform: translateX(50%);
+  transition: 0.5s;
+}
+
+/* cta primary (shop now)*/
+
+.hero__cta-link img {
+  display: inline;
+}
+.hero__cta-link:hover {
+  letter-spacing: 0.8rem;
+  color: var(--clr-bodyText-Dark-Gray);
+  transition: 0.25s;
+}
+
+/* navbar primary */
+
+.hero__nav-list li {
+  position: relative;
+}
+.hero__nav-list a::before {
+  content: "";
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  position: absolute;
+  background-color: var(--clr-nav-primary-White);
+  transition: 0.25s;
+}
+
+.hero__nav-list-item:hover a::before {
+  width: 100%;
+}
+/*--------------------------------
+layout
+-------------------------------*/
+
+/* navbar */
+
+.hero__nav-primary {
+  justify-content: space-between;
+  padding: 2.7em 0 2.7em 2.7em;
+  height: fit-content;
+  z-index: 10;
+}
+
+/*primary grid layout*/
+
+.about {
+  height: 34vh;
+}
+.hero,
+.about {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.hero__nav-primary,
+.hero__img-carousel,
+.hero__carousel-nav {
+  grid-row-start: 1;
+}
+
+.hero__img-carousel {
+  grid-column: 1 / span 6;
+  /*found it easier to put height on grid item than
+    to put it on grid container 
+    as a result there was no overlaping smh
+    */
+  height: 66vh;
+}
+
+.hero__nav-primary {
+  grid-column: 1 / span 3;
+}
+
+.hero__carousel-nav {
+  grid-column: 6;
+  align-self: end;
+  transform: translateX(100%);
+}
+.hero__content-carousel {
+  grid-column: 7 / -1;
+}
+
+/*about section*/
+.about__img--left,
+.about__img--right {
+  grid-column: span 3;
+}
+
+.about__content {
+  grid-column: 4 / span 4;
+}
+
+/*----------------
+positioning grid items
+----------------*/
+
+.carousel-sliders-container,
+.carousel-slider {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__img-carousel img,
+.about__img--left img,
+.about__img--right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+/*to center about and main articles*/
+.felx-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+article {
+  padding: 0 1em;
+}
+
+/*navbar layout*/
+.hero__nav-logo-ham-container {
+  /*push it to the right margin auto sucks remaining space when parent is display flex*/
+  margin-right: auto;
+}
+
+.hero__nav-list {
+  gap: 1.5em;
+}
+
+/*---------------------------------------------------------------------
+Carousel
+---------------------------------------------------------------------*/
+
+.hero__img-carousel,
+.hero__content-carousel {
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+}
+.carousel-sliders-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.carousel-slider {
+  height: 100%;
+  flex: 0 0 100%;
+}
+
+.slider-clone-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: all 0.5s;
+}
+
+/*---------------------------------------------------------------------
+MEDIA QUIRES
+---------------------------------------------------------------------*/
+
+@media (max-width: 1400px) {
+  body {
+    overflow-y: initial;
+  }
+  .hero {
+    grid-template-rows: auto 50vh;
+  }
+  .hero__img-carousel {
+    grid-column-end: -1;
+    height: 50vh;
+  }
+  .hero__nav-primary {
+    position: fixed;
+    width: 100%;
+    padding: 1.7em;
+    background-color: rgb(0, 0, 0); /*fallback color*/
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+  }
+  .hero__carousel-nav {
+    grid-column: 9 / span 2;
+    transform: translateX(0%);
+  }
+  .hero__content-carousel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1150px) {
+  .about {
+    height: 100vh;
+    display: block;
+  }
+  .about__img--left,
+  .about__img--right,
+  .about__content {
+    height: calc(100vh / 3);
+  }
+
+  .sub-title {
+    font-size: 4vw;
+  }
+}
+.display-icons {
+  display: none;
+}
+@media (max-width: 600px) {
+  .sub-title {
+    letter-spacing: 0.2rem;
+  }
+
+  .icon-close,
+  .nav-hamburger-icon,
+  .nav-links--logo {
+    margin-right: auto;
+  }
+  .hero__nav-logo-ham-container,
+  .hero__nav-list {
+    position: absolute;
+    width: 100%;
+    padding: 1.6em 0.6em;
+  }
+  .hero__nav-list-item a::before {
+    background-color: var(--clr-mainTitle-Black);
+  }
+  .hero__nav-list-item a {
+    color: var(--clr-mainTitle-Black);
+  }
+  .display-icons {
+    display: block;
+  }
+  .js-hero__nav-list {
+    transform: translateX(-100%);
+    background-color: var(--clr-nav-primary-White);
+  }
+
+  .hero__carousel-nav {
+    grid-column: 8 / 11;
+  }
+}

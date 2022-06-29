@@ -290,6 +290,7 @@ layout
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
+  z-index: 10;
 }
 .hero__content-carousel {
   grid-column: 7 / -1;

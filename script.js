@@ -125,7 +125,4 @@ document.querySelectorAll(".js-stop-qutoCarousel").forEach((element) => {
   element.addEventListener("touchstart", () => {
     stopInterval = true;
   });
-  element.addEventListener("touchend", () => {
-    stopInterval = false;
-  });
 });
